@@ -1,6 +1,3 @@
-srand(42); 
-data = randn(1024);
-
 #fucntion that times how long it takes to output a string of data 
 #to the common output 
 function time_STDOUT(my_data::Array)
@@ -11,15 +8,20 @@ function time_STDOUT(my_data::Array)
 	 toc(); 
 end 
 
-#function which writes an array of data to file separated by commas 
-function time_file_write(my_data::Array)
-	 println("Is my data file open?");
+#function that times the writing to a file of data in ASCII
+function time_file_write(my_data::Array,file_name = "my_data.txt"::String)
+	 file_name = *("Desktop/HPC/HW3/",file_name,".txt"); 
+	 println(file_name); 
 	 tic()
-	 writecsv("data_test1.txt",my_data); 
+	 writecsv(file_name,my_data); 
 	 toc()
 end 
 
-#time_STDOUT(data); 
-
-writecsv("Desktop/HPC/HW3/my_data_test.txt",data); 
+#fucntion that times the read from a file of data in ASCII
+function time_file_read!(my_data::Array,file_name = "my_data"::String)
+	 file_name = *("Desktop/HPC/HW3/",file_name,".txt"); 
+	 tic(); 
+	 readcsv(file_name);
+	 toc(); 
+end
 
