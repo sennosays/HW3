@@ -1,4 +1,5 @@
 using HDF5, JLD
+using Base.Test
 
 #fucntion that times how long it takes to output a string of data 
 #to the common output 
