@@ -27,4 +27,19 @@ function time_file_read_ASCII(file_name = "my_data"::String)
 end
 
 
+#functions 
+function write_binary(my_data::Array)
+	tic()
+	fp = open("binary_write.txt","w+")
+	serialize(fp,my_data); 
+	close(fp); 
+	toc()
+end
 
+function read_binary()
+	tic()
+	fp = open("binary_write.txt","r")
+	read_data = deserialize(fp); 
+	close(fp); 
+	toc()
+end
