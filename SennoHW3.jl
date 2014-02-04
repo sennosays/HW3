@@ -1,4 +1,4 @@
-#using HDF5, JLD
+using HDF5, JLD
 
 #fucntion that times how long it takes to output a string of data 
 #to the common output 
